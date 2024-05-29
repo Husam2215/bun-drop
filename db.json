@@ -1,0 +1,178 @@
+{
+  "Burgers": [
+    {
+      "id": 1,
+      "title": "Cheeseburger",
+      "price": "150kr",
+      "description": "En burgare gjord på svenskt nötkött med krispig isbergssallad, cheddarsmältost och originaldressing - allt omslutet av ett gyllenrostat sesambröd",
+      "category": "Burger",
+      "image": "https://www.max.se/contentassets/2c64a1d06cc64c9284fbfbca16d37f59/product_cheeseburgare.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }, 
+    {
+      "id": 2,
+      "title": "Orginal",
+      "price": "130kr",
+      "description": "En burgare av svenskt nötkött med cheddarsmältost, tomat, krispig isbergssallad, Sweet Onion och originaldressing, allt omslutet av ett gyllenrostat sesambröd",
+      "category": "Burger",
+      "image": "https://www.max.se/contentassets/84673529ebb24f689d9aa9b59ed3824f/68736_hemsida_produkt_original_noketchup_singel_1920x1787px_c2_2024_se_dk_no.jpg?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 3, 
+      "title": "Big Classic", 
+      "price": "150kr", 
+      "description": "En dubbelburgare med svenskt nötkött, cheddarost, Sweet onion, saltgurka, krispig isbergssallad och originaldressing, allt omslutet av ett gyllenrostat sesambröd", 
+      "category": "Burger",
+      "image": "https://www.max.se/contentassets/0e4b3e5be12e4a689a9bdeee2da0a26f/68736_hemsida_produkt_bigclassic_beef_singel_1920x1787px_c2_2024_se_dk_no.jpg?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 4, 
+      "title": "Triple Cheese", 
+      "price": "150kr", 
+      "description":"En burgare av svenskt nötkött med creoledressing, cheddarsmältost, emmentalerost, Sweet Onion och saltgurka, allt omslutet av ett rostat friscobröd", 
+      "category": "Burger",
+      "image":"https://www.max.se/contentassets/05e149929e4e41b99700849e21283bfb/68736_hemsida_produkt_triplecheese_beef_singel_1920x1787px_c2_2024_se_dk_no.jpg?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 5, 
+      "title": "Spicy Avocado Crispy Supreme", 
+      "price": "150kr", 
+      "description":"En burgare med Crispy Supreme, avokado, picklad rödlök, färsk jalapeño, cheddarsmältost, sourcream 'n' onion-dressing, tomat, allt omslutet av ett gyllenrostat sesambröd", 
+      "category": "Burger",
+      "image":"https://www.max.se/contentassets/d8a10a2f2fd44b8b8e77ac28d6c37366/68804_spicyavocado_crispysupreme_single_int_hemsida_c3_1920x1787px_se_no_dk.jpg?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }
+  ],
+  "Fries": [
+    {
+      "id": 1, 
+      "title": "Crispy Fries", 
+      "price": "30kr", 
+      "description": "Våra godaste & krispigaste pommes frites någonsin. Ingår som tillbehör till ditt mål", 
+      "category": "Fries",
+      "image": "https://www.max.se/contentassets/92f5f7500ad64244983807db542b1128/side_crispy_fries.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 2,
+      "title": "Sweet potato Fries",
+      "price": "45kr",
+      "description": "Våra goda sötpotatispommes",
+      "category": "Fries",
+      "image": "https://www.max.se/contentassets/4b039290e9b74f14ac5d43cefdd531e3/side_sweet_potato_fries.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 3,
+      "title": "Cheese Fries",
+      "price": "50kr",
+      "description":"Crispy fries med originaldressing, jalapeños, gul lök (Sweet Onion) och smält cheddardip.",
+      "category": "Fries",
+      "image": "https://www.max.se/contentassets/e920e16739f643549e2bba9c57943c3d/side_cheese_fries.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }, 
+    {
+      "id": 4,
+      "title": "Sourcream 'n' Onion Fries",
+      "price": "45kr",
+      "description": "Crispy fries med sourcream oniondressing, cheddarsmältost, jalapeños och gul lök (sweet onion).",
+      "category": "Fries",
+      "image": "https://www.max.se/contentassets/e97e14eeb71341ea8d9f3b2f3bd48a69/side_sourcream_onion_fries_se_dk_no.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }
+  ],
+  "Drinks" : [
+    {
+      "id": 1,
+      "title": "Coca-Cola",
+      "price": "20kr",
+      "description": "Läsk",
+      "category": "Drink",
+      "image": "https://www.max.se/contentassets/fb026cfab33c4270ac08b00089aa94b2/drink_coca_cola.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }, 
+    {
+      "id": 2,
+      "title": "Coca-Cola Zero",
+      "price": "20kr",
+      "description": "Läsk",
+      "category": "Drink",
+      "image": "https://www.max.se/globalassets/imagebank/se/coffee--drinks/drink_coca_cola_zero.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }, 
+    {
+      "id": 3,
+      "title": "Fanta",
+      "price": "20kr",
+      "description": "Läsk",
+      "category": "Drink",
+      "image": "https://www.max.se/contentassets/d422a20b1fc942b991a88c3db020ea52/drink_fanta_orange.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 4,
+      "title": "Fanta Exotic",
+      "price": "20kr",
+      "description": "Läsk",
+      "category": "Drink",
+      "image": "https://www.max.se/contentassets/a36fc426f4f04d9ebcc0128a58d6ee8d/drink_fanta_exotic.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 5,
+      "title": "Fanta Lemon Zero",
+      "price": "20kr",
+      "description": "Läsk",
+      "category": "Drink",
+      "image": "https://www.max.se/contentassets/6a6f48253a1549d78dc3f3be20926d12/drink_fanta_lemon_zero.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 6,
+      "title": "Sprite Zero",
+      "price": "20kr",
+      "description": "Läsk",
+      "category": "Drink",
+      "image": "https://www.max.se/contentassets/899c6cd907884c0da98b35be5c57a9db/drink_sprite_zero.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }
+  ],
+  "Dip" : [
+    {
+      "id": 1,
+      "title": "Sourcream 'n' Onion",
+      "price": "15kr",
+      "description": "Grymt god, en av favoriterna!",
+      "category": "Dippa",
+      "image": "https://www.max.se/contentassets/e28b4d9939d44601b05c24009ad10628/product_umami-dip.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 2,
+      "title": "Smält cheddardip",
+      "price": "15kr",
+      "description": "Varm och god, utmärkt till pommes!",
+      "category": "Dippa",
+      "image": "https://www.max.se/contentassets/2bfd38bf94594fff9d00870a06ca5c96/product_smalt-cheddardip.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 3,
+      "title": "Orginal",
+      "price": "15kr",
+      "description": "En klassiker",
+      "category": "Dippa",
+      "image": "https://www.max.se/contentassets/7d774cdd543c40be8fafd4ad6d45baf2/product_max-original.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 4,
+      "title": "Chilibearnaise",
+      "price": "15kr",
+      "description": "En het bearnaise",
+      "category": "Dippa",
+      "image": "https://www.max.se/contentassets/bd51bd5d39d149be90bcdcf45e449694/product_chillibearnaise.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 5,
+      "title": "BBQ",
+      "price": "15kr",
+      "description": "En rökig och mustig BBQ-sås för alla grillfantaster",
+      "category": "Dippa",
+      "image": "https://www.max.se/contentassets/af0633f32e1649a587f0b7519c2825b0/product_bbq.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    },
+    {
+      "id": 6,
+      "title": "Majonnäs",
+      "price": "15kr",
+      "description": "En tidlös dip!",
+      "category": "Dippa",
+      "image": "https://www.max.se/contentassets/5161f214e5df40b3a6558e4d44807243/product_mayo.png?width=1160&sharpen=5&sigma=1,4&threshold=0"
+    }
+  ]
+}
