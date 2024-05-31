@@ -1,29 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import './Menu.css'; 
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import './Menu.css';
+import { OrderContext } from '../App';
 
-const MenuPage = () => {
-  const [menuItems, setMenuItems] = useState({});
+const MenuPage = ({ menuItems }) => {
+  const { addToOrder } = useContext(OrderContext);
   const [title, setTitle] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
-    fetch('db.json') 
-      .then(response => response.json())
-      .then(data => {
-        setMenuItems(data);
-        setTitle(data.title === "Menu" ? "Burger" : data.title); // Använd "Burger" istället för "Menu"
-      })
-      .catch(error => console.error('Error fetching menu items:', error));
-  }, []);
+    if (menuItems.title) {
+      setTitle(menuItems.title === "Menu" ? "Burger" : menuItems.title);
+    }
+  }, [menuItems]);
 
   const handleFilterClick = (category) => {
     setSelectedCategory(category);
   };
 
+  const handleAddToOrder = (item) => {
+    addToOrder(item);
+  };
+
   return (
     <div className="menu-container">
-      <h1>{title}</h1>
+      <div className="header">
+        <h1>{title}</h1>
+        <div className="order-button-container">
+          <Link to="/order">
+            <button className='watch-order'>See Order</button>
+          </Link>
+        </div>
+      </div>
       <button className="filter-button" onClick={() => setShowFilters(!showFilters)}>
         {showFilters ? 'Hide Filters' : 'Show Filters'}
       </button>
@@ -44,11 +53,12 @@ const MenuPage = () => {
               {menuItems[category].map((item) => (
                 <div key={item.id} className="menu-item">
                   <h3>{item.title}</h3>
-                  <button className="menu-item-button">
+                  <button className="menu-item-button" onClick={() => handleAddToOrder(item)}>
                     <img src={item.image} alt={item.title} />
                   </button>
                   <p className="menu-item-description">{item.description}</p>
                   <p>{item.price}</p>
+                  <button className="order-button" onClick={() => handleAddToOrder(item)}>Order</button>
                 </div>
               ))}
             </div>

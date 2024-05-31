@@ -1,0 +1,32 @@
+.order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .order-items {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+  }
+  
+  
+  .order-item {
+    text-align: center;
+    margin: 10px;
+    max-width: 200px;
+  }
+  
+  .order-item img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .order-item h3 {
+    margin-bottom: 5px;
+  }
+  

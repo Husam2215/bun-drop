@@ -69,7 +69,7 @@ body {
   padding: 10px 15px;
   cursor: pointer;
   margin: 20px;
-  align-self: flex-start
+  align-self: flex-start;
 }
 
 .filter-button:hover {
@@ -79,4 +79,29 @@ body {
 .filter-buttons {
   margin: 20px;
   align-self: flex-start;
+}
+
+.watch-order {
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 2px;
+  align-self: flex-end;
+}
+
+.order-button {
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.order-button:hover {
+  background-color: green;
 }
