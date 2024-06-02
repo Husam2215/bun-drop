@@ -15,33 +15,10 @@ body {
 .order-btn {
     position: absolute;
     bottom: 10px; /* Öka avståndet från botten för att flytta ner knappen mer */
-    left: 880px; /* Justera avståndet från högerkanten efter behov */
+    left: 90vh; /* Justera avståndet från högerkanten efter behov */
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer; 
-}
-
-.customer-choice,
-.original-burger-label,
-.spicy-avocado-label {
-    position: absolute;
-    font-size: 25px; /* Storlek på rubriken */
-    color: black; /* Textfärg i svart */
-}
-
-.customer-choice {
-    top: 100px; /* Flytta ner rubriken */
-    left: 25%; /* Justera avståndet från vänsterkanten efter behov */
-}
-
-.original-burger-label {
-    top: 250px; /* Flytta ner rubriken */
-    left: 15%; /* Flytta till vänster med 10% av sidans bredd */
-}
-
-.spicy-avocado-label {
-    top: 250px; /* Flytta ner rubriken */
-    right: 40%; /* Flytta till höger med 10% av sidans bredd */
 }
 
 .image-container {
@@ -58,34 +35,4 @@ body {
     max-height: 100%; /* Sätt maxhöjden till 100% av förälderns höjd */
 } 
 
-.original-burger {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); /* Centrerar vertikalt */
-    left: 10%; /* Flytta till vänster med 10% av sidans bredd */
-    width: 300px; /* Öka bredden på bilden till 300px */
-    height: auto; /* Höjden justeras automatiskt för att behålla proportionerna */
-}
 
-.original-burger img {
-    max-width: 250px; /* Sätt maxbredden till 250px */
-    max-height: 250px; /* Sätt maxhöjden till 250px */
-    width: auto; /* Återställer bredden till auto för att undvika förvrängning */
-    height: auto; /* Återställer höjden till auto för att undvika förvrängning */
-}
-
-.spicy-avocado {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); /* Centrerar vertikalt */
-    right: 10%; /* Flytta till vänster med 10% av sidans bredd */
-    width: 300px; /* Öka bredden på bilden till 300px */
-    height: auto;
-} 
-
-.spicy-avocado img { 
-    max-width: 250px; /* Sätt maxbredden till 250px */
-    max-height: 250px; /* Sätt maxhöjden till 250px */
-    width: auto; /* Återställer bredden till auto för att undvika förvrängning */
-    height: auto; /* Återställer höjden till auto för att undvika förvrängning */
-}
