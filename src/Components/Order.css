@@ -41,3 +41,18 @@
 .order-item button:hover {
   background-color: #cc0000;
 }
+
+.checkout-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.checkout-btn:hover {
+  background-color: #218838;
+}

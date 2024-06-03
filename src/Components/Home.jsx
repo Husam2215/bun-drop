@@ -5,12 +5,21 @@ import './Home.css';
 const HomePage = () => {
   return (
     <div className="home-page">
-      <div className="customer-choice">Kundernas Favorit</div>
+      <div className="favorites">
+        <div className="favorite-item">
+          <h3>Customer Favorite</h3>
+          <img src="/images/Orginal.jpg" alt="Original" />
+        </div>
+        <div className="favorite-item">
+          <h3>Customer Favorite</h3>
+          <img src="/images/Spicy Avocado.jpg" alt="Spicy Avocado" />
+        </div>
+      </div>
       <div className="image-container">
         <img src="/images/Newton Burger.webp" alt="Newton Burger" />
       </div>
       <Link to="/menu">
-        <button className='order-btn'>Beställ Här</button>
+        <button className='order-btn'>Order Here</button>
       </Link>
     </div>
   );

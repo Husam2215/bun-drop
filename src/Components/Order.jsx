@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { OrderContext } from '../App';
 import './Order.css';
 
@@ -53,8 +54,11 @@ const OrderPage = () => {
             </div>
           ))}
           <div className="total-cost">
-            <h3>Total Kostnad: {totalCost.toFixed(0)} KR</h3>
+            <h3>Total Cost: {totalCost.toFixed(0)} KR</h3>
           </div>
+          <Link to="/checkout">
+            <button className="checkout-btn">Payment</button>
+          </Link>
         </div>
       )}
     </div>

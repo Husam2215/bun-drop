@@ -1,0 +1,58 @@
+.checkout-container {
+    padding: 20px;
+  }
+  
+  .checkout-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .checkout-item img {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .total-cost {
+    margin-top: 20px;
+  }
+  
+  .payment-method {
+    margin-top: 20px;
+  }
+  
+  .payment-method button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .swish-payment,
+  .card-payment {
+    margin-top: 20px;
+  }
+  
+  .swish-payment input,
+  .card-payment input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .confirm-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #0056b3;
+  }
+  

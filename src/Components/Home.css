@@ -1,38 +1,68 @@
-/* Home.css */
 body {
-    margin: 0; /* Ta bort standardmarginaler från body */
-    height: 100vh; /* Hela skärmens höjd */
-    background-color: white; /* Vit bakgrundsfärg runt hela sidan */
+    margin: 0;
+    height: 100vh;
+    background-color: white;
 }
 
 .home-page {
     display: flex;
-    justify-content: center; /* Horisontellt centrera */
-    align-items: center; /* Vertikalt centrera */
-    height: 100%; /* Hela skärmens höjd */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
 }
 
-.order-btn {
+.favorites {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     position: absolute;
-    bottom: 10px; /* Öka avståndet från botten för att flytta ner knappen mer */
-    left: 90vh; /* Justera avståndet från högerkanten efter behov */
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer; 
+    top: 40%;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+}
+
+.favorite-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    margin: 0 200px;
+}
+
+.favorite-item h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px; /* Gör texten mindre */
+}
+
+.favorite-item img {
+    width: 100%; /* Ändra storlek på bilderna */
+    height: auto;
 }
 
 .image-container {
-    position: absolute;
-    top: 10px;
-    left: 25%; /* Justera avståndet från vänsterkanten efter behov */
-    width: 50%; /* Minska bredden på bilden till 50% av sidans bredd */
-    height: 100%;
-    margin-bottom: 20px; /* Lägger till lite mellanrum mellan bilden och knappen */
+    width: 50%; /* Minska bredden på huvudbilden */
+    height: auto;
+    margin-bottom: 40px; /* Lägger till lite mellanrum mellan huvudbilden och knappen */
 }
 
 .image-container img {
     max-width: 100%; /* Sätt maxbredden till 100% av förälderns bredd */
     max-height: 100%; /* Sätt maxhöjden till 100% av förälderns höjd */
-} 
+}
 
-
+.order-btn {
+    position: absolute;
+    bottom: 0px;
+    padding: 10px 20px;
+    font-size: 16px;
+    left: 92vh;
+    cursor: pointer; 
+}
+.favorite-item:nth-child(2) {
+    margin: 0 400px; /* Justera detta värde för att flytta bilden åt höger */
+}
