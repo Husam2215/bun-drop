@@ -6,12 +6,14 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <div className="favorites">
-        <div className="favorite-item">
+        <div className="original favorite-item">
           <h3>Customer Favorite</h3>
+          <p>Orginal Burger</p> 
           <img src="/images/Orginal.jpg" alt="Original" />
         </div>
-        <div className="favorite-item">
+        <div className="spicy favorite-item">
           <h3>Customer Favorite</h3>
+          <p>Spicy Avocado Burger</p> 
           <img src="/images/Spicy Avocado.jpg" alt="Spicy Avocado" />
         </div>
       </div>

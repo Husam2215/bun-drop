@@ -4,16 +4,23 @@ import './Menu.css';
 import { OrderContext } from '../App';
 
 const MenuPage = ({ menuItems }) => {
-  const { addToOrder } = useContext(OrderContext);
+  const { addToOrder, orderItems } = useContext(OrderContext);
   const [title, setTitle] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [orderCount, setOrderCount] = useState(0);
 
   useEffect(() => {
     if (menuItems.title) {
       setTitle(menuItems.title === "Menu" ? "Burger" : menuItems.title);
     }
   }, [menuItems]);
+
+  useEffect(() => {
+    // Uppdatera antalet beställda varor när orderItems ändras
+    const count = orderItems.reduce((total, item) => total + item.quantity, 0);
+    setOrderCount(count);
+  }, [orderItems]);
 
   const handleFilterClick = (category) => {
     setSelectedCategory(category);
@@ -29,7 +36,10 @@ const MenuPage = ({ menuItems }) => {
         <h1>{title}</h1>
         <div className="order-button-container">
           <Link to="/order">
-            <button className='watch-order'>See Order</button>
+            <button className='watch-order'>
+              See Order
+              {orderCount > 0 && <span className="order-count-badge">{orderCount}</span>}
+            </button>
           </Link>
         </div>
       </div>

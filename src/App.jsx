@@ -4,6 +4,7 @@ import Home from './Components/Home.jsx';
 import MenuPage from './Components/Menu.jsx';
 import OrderPage from './Components/Order.jsx';
 import CheckoutPage from './Components/Checkout.jsx';
+import ConfirmationPage from './Components/Confirmation.jsx';
 
 export const OrderContext = createContext();
 
@@ -63,6 +64,7 @@ const App = () => {
           <Route path="/menu" element={<MenuPage menuItems={menuItems} />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path='/confirmation' element={<ConfirmationPage/>} />
         </Routes>
       </Router>
     </OrderContext.Provider>

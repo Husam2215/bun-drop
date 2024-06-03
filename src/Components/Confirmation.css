@@ -1,0 +1,21 @@
+.confirmation-container {
+    text-align: center;
+  }
+  
+  .order-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .order-item {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 200px; /* Justera bredden efter behov */
+  }
+  
+  .order-item img {
+    max-width: 100%;
+  }
+  

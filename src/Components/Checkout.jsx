@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { OrderContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 import './Checkout.css';
 
 const CheckoutPage = () => {
@@ -7,28 +8,61 @@ const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [swishNumber, setSwishNumber] = useState('');
   const [cardDetails, setCardDetails] = useState({ cardNumber: '', expiryDate: '', cvv: '' });
+  const [swishNumberError, setSwishNumberError] = useState('');
+  const [cardDetailsError, setCardDetailsError] = useState('');
+  const navigate = useNavigate();
 
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
+    setSwishNumberError(''); // Reset errors
+    setCardDetailsError('');
   };
 
   const handleSwishNumberChange = (e) => {
-    setSwishNumber(e.target.value);
+    const value = e.target.value;
+    if (!/^\d*$/.test(value)) return; // Ensure only numeric input
+    setSwishNumber(value);
+    if (value.length !== 10) {
+      setSwishNumberError('Swish number must be 10 digits.');
+    } else {
+      setSwishNumberError('');
+    }
   };
 
   const handleCardDetailsChange = (e) => {
     const { name, value } = e.target;
+    if (!/^\d*$/.test(value)) return; // Ensure only numeric input
     setCardDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   };
 
   const handleConfirmPurchase = () => {
-    // Logik för att hantera köpbekräftelse
-    console.log('Payment method:', paymentMethod);
-    if (paymentMethod === 'swish') {
-      console.log('Swish number:', swishNumber);
-    } else if (paymentMethod === 'card') {
-      console.log('Card details:', cardDetails);
+    if (paymentMethod === 'swish' && swishNumber.length !== 10) {
+      setSwishNumberError('Swish number must be 10 digits.');
+      return;
     }
+
+    if (paymentMethod === 'card') {
+      const { cardNumber, expiryDate, cvv } = cardDetails;
+      if (!cardNumber || !expiryDate || !cvv) {
+        setCardDetailsError('Please fill in all card details.');
+        return;
+      }
+    }
+
+    const deliveryTime = Math.floor(Math.random() * 21) + 20; // Random time between 20 and 40 minutes
+    console.log('Navigating to confirmation page with:', {
+      orderItems,
+      totalCost,
+      deliveryTime
+    });
+
+    navigate('/confirmation', {
+      state: {
+        orderItems,
+        totalCost,
+        deliveryTime,
+      }
+    });
   };
 
   return (
@@ -43,12 +77,12 @@ const CheckoutPage = () => {
               <h3>{item.title}</h3>
               <img src={item.image} alt={item.title} />
               <p>{item.description}</p>
-              <p>{item.price} KR</p>
+              <p><strong>{item.price} Sek</strong></p>
               <p>Quantity: {item.quantity}</p>
             </div>
           ))}
           <div className="total-cost">
-            <h3>Total Cost: {totalCost.toFixed(0)} KR</h3>
+            <h3>Total Cost: {totalCost.toFixed(0)} Sek</h3>
           </div>
           <div className="payment-method">
             <h3>Choose Payment Method:</h3>
@@ -63,7 +97,9 @@ const CheckoutPage = () => {
                 value={swishNumber}
                 onChange={handleSwishNumberChange}
                 placeholder="Swish Number"
+                maxLength={10}
               />
+              {swishNumberError && <p className="error-message">{swishNumberError}</p>}
             </div>
           )}
           {paymentMethod === 'card' && (
@@ -75,6 +111,7 @@ const CheckoutPage = () => {
                 value={cardDetails.cardNumber}
                 onChange={handleCardDetailsChange}
                 placeholder="Card Number"
+                maxLength={16}
               />
               <input
                 type="text"
@@ -82,6 +119,7 @@ const CheckoutPage = () => {
                 value={cardDetails.expiryDate}
                 onChange={handleCardDetailsChange}
                 placeholder="Expiry Date (MM/YY)"
+                maxLength={4}
               />
               <input
                 type="text"
@@ -89,7 +127,9 @@ const CheckoutPage = () => {
                 value={cardDetails.cvv}
                 onChange={handleCardDetailsChange}
                 placeholder="CVV"
+                maxLength={3}
               />
+              {cardDetailsError && <p className="error-message">{cardDetailsError}</p>}
             </div>
           )}
           <button className="confirm-btn" onClick={handleConfirmPurchase}>

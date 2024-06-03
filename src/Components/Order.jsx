@@ -40,7 +40,7 @@ const OrderPage = () => {
               <h3>{item.title}</h3>
               <img src={item.image} alt={item.title} />
               <p>{item.description}</p>
-              <p>{item.price} KR</p>
+              <p><strong>{item.price} Sek</strong></p>
               <p>Quantity: 
                 <input 
                   type="number" 
@@ -54,7 +54,7 @@ const OrderPage = () => {
             </div>
           ))}
           <div className="total-cost">
-            <h3>Total Cost: {totalCost.toFixed(0)} KR</h3>
+            <h3>Total Cost: {totalCost.toFixed(0)} Sek</h3>
           </div>
           <Link to="/checkout">
             <button className="checkout-btn">Payment</button>
