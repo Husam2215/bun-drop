@@ -161,7 +161,7 @@
     {
       "id": 20,
       "title": "BBQ",
-      "price": "15kr",
+      "price": 15,
       "description": "En rökig och mustig BBQ-sås för alla grillfantaster",
       "category": "Dippa",
       "image": "https://www.max.se/contentassets/af0633f32e1649a587f0b7519c2825b0/product_bbq.png?width=1160&sharpen=5&sigma=1,4&threshold=0"

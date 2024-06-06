@@ -10,12 +10,17 @@ const CheckoutPage = () => {
   const [cardDetails, setCardDetails] = useState({ cardNumber: '', expiryDate: '', cvv: '' });
   const [swishNumberError, setSwishNumberError] = useState('');
   const [cardDetailsError, setCardDetailsError] = useState('');
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [formError, setFormError] = useState('');
   const navigate = useNavigate();
 
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
     setSwishNumberError(''); // Reset errors
     setCardDetailsError('');
+    setFormError('');
   };
 
   const handleSwishNumberChange = (e) => {
@@ -36,6 +41,11 @@ const CheckoutPage = () => {
   };
 
   const handleConfirmPurchase = () => {
+    if (!name || !lastName || !address) {
+      setFormError('Please fill in all required fields.');
+      return;
+    }
+
     if (paymentMethod === 'swish' && swishNumber.length !== 10) {
       setSwishNumberError('Swish number must be 10 digits.');
       return;
@@ -53,7 +63,10 @@ const CheckoutPage = () => {
     console.log('Navigating to confirmation page with:', {
       orderItems,
       totalCost,
-      deliveryTime
+      deliveryTime,
+      name,
+      lastName,
+      address
     });
 
     navigate('/confirmation', {
@@ -61,6 +74,9 @@ const CheckoutPage = () => {
         orderItems,
         totalCost,
         deliveryTime,
+        name,
+        lastName,
+        address
       }
     });
   };
@@ -89,6 +105,32 @@ const CheckoutPage = () => {
             <button onClick={() => handlePaymentMethodChange('swish')}>Swish</button>
             <button onClick={() => handlePaymentMethodChange('card')}>Card</button>
           </div>
+          {paymentMethod && (
+            <>
+              <div className="personal-details">
+                <h3>Enter your details:</h3>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="First Name"
+                />
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Last Name"
+                />
+                <input
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Address"
+                />
+              </div>
+              {formError && <p className="error-message">{formError}</p>}
+            </>
+          )}
           {paymentMethod === 'swish' && (
             <div className="swish-payment">
               <h4>Enter Swish Number:</h4>
@@ -132,9 +174,11 @@ const CheckoutPage = () => {
               {cardDetailsError && <p className="error-message">{cardDetailsError}</p>}
             </div>
           )}
-          <button className="confirm-btn" onClick={handleConfirmPurchase}>
-            Confirm Purchase
-          </button>
+          {paymentMethod && (
+            <button className="confirm-btn" onClick={handleConfirmPurchase}>
+              Confirm Purchase
+            </button>
+          )}
         </div>
       )}
     </div>
