@@ -13,14 +13,18 @@ const CheckoutPage = () => {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
-  const [formError, setFormError] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [lastNameError, setLastNameError] = useState('');
+  const [addressError, setAddressError] = useState('');
   const navigate = useNavigate();
 
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
     setSwishNumberError(''); // Reset errors
     setCardDetailsError('');
-    setFormError('');
+    setNameError('');
+    setLastNameError('');
+    setAddressError('');
   };
 
   const handleSwishNumberChange = (e) => {
@@ -38,26 +42,58 @@ const CheckoutPage = () => {
     const { name, value } = e.target;
     if (!/^\d*$/.test(value)) return; // Ensure only numeric input
     setCardDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+    if (name === 'cardNumber' && value.length !== 16) {
+      setCardDetailsError('Card number must be 16 digits.');
+    } else if (name === 'expiryDate' && value.length !== 4) {
+      setCardDetailsError('Expiry date must be 4 digits (MMYY).');
+    } else if (name === 'cvv' && value.length !== 3) {
+      setCardDetailsError('CVV must be 3 digits.');
+    } else {
+      setCardDetailsError('');
+    }
   };
 
   const handleConfirmPurchase = () => {
-    if (!name || !lastName || !address) {
-      setFormError('Please fill in all required fields.');
-      return;
+    let valid = true;
+    if (!name) {
+      setNameError('Please enter your first name.');
+      valid = false;
+    } else {
+      setNameError('');
+    }
+
+    if (!lastName) {
+      setLastNameError('Please enter your last name.');
+      valid = false;
+    } else {
+      setLastNameError('');
+    }
+
+    if (!address) {
+      setAddressError('Please enter your address.');
+      valid = false;
+    } else {
+      setAddressError('');
     }
 
     if (paymentMethod === 'swish' && swishNumber.length !== 10) {
       setSwishNumberError('Swish number must be 10 digits.');
-      return;
+      valid = false;
+    } else {
+      setSwishNumberError('');
     }
 
     if (paymentMethod === 'card') {
       const { cardNumber, expiryDate, cvv } = cardDetails;
-      if (!cardNumber || !expiryDate || !cvv) {
-        setCardDetailsError('Please fill in all card details.');
-        return;
+      if (cardNumber.length !== 16 || expiryDate.length !== 4 || cvv.length !== 3) {
+        setCardDetailsError('Please fill in all card details correctly.');
+        valid = false;
+      } else {
+        setCardDetailsError('');
       }
     }
+
+    if (!valid) return;
 
     const deliveryTime = Math.floor(Math.random() * 21) + 20; // Random time between 20 and 40 minutes
     console.log('Navigating to confirmation page with:', {
@@ -115,20 +151,22 @@ const CheckoutPage = () => {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="First Name"
                 />
+                {nameError && <p className="error-message">{nameError}</p>}
                 <input
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Last Name"
                 />
+                {lastNameError && <p className="error-message">{lastNameError}</p>}
                 <input
                   type="text"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="Address"
                 />
+                {addressError && <p className="error-message">{addressError}</p>}
               </div>
-              {formError && <p className="error-message">{formError}</p>}
             </>
           )}
           {paymentMethod === 'swish' && (
@@ -160,7 +198,7 @@ const CheckoutPage = () => {
                 name="expiryDate"
                 value={cardDetails.expiryDate}
                 onChange={handleCardDetailsChange}
-                placeholder="Expiry Date (MM/YY)"
+                placeholder="Expiry Date (MMYY)"
                 maxLength={4}
               />
               <input
@@ -175,7 +213,10 @@ const CheckoutPage = () => {
             </div>
           )}
           {paymentMethod && (
-            <button className="confirm-btn" onClick={handleConfirmPurchase}>
+            <button
+              className="confirm-btn"
+              onClick={handleConfirmPurchase}
+            >
               Confirm Purchase
             </button>
           )}
