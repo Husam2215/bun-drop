@@ -90,7 +90,7 @@ body {
   cursor: pointer;
   margin: 2px;
   align-self: flex-end;
-  position: relative; /* Lägg till denna rad */
+  position: relative; 
 }
 
 .watch-order:hover {

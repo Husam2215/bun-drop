@@ -20,7 +20,7 @@ const CheckoutPage = () => {
 
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
-    setSwishNumberError(''); // Reset errors
+    setSwishNumberError(''); 
     setCardDetailsError('');
     setNameError('');
     setLastNameError('');
@@ -29,7 +29,7 @@ const CheckoutPage = () => {
 
   const handleSwishNumberChange = (e) => {
     const value = e.target.value;
-    if (!/^\d*$/.test(value)) return; // Ensure only numeric input
+    if (!/^\d*$/.test(value)) return; // Endast siffror går att skriva in
     setSwishNumber(value);
     if (value.length !== 10) {
       setSwishNumberError('Swish number must be 10 digits.');
@@ -40,7 +40,7 @@ const CheckoutPage = () => {
 
   const handleCardDetailsChange = (e) => {
     const { name, value } = e.target;
-    if (!/^\d*$/.test(value)) return; // Ensure only numeric input
+    if (!/^\d*$/.test(value)) return; 
     setCardDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
     if (name === 'cardNumber' && value.length !== 16) {
       setCardDetailsError('Card number must be 16 digits.');
@@ -95,7 +95,7 @@ const CheckoutPage = () => {
 
     if (!valid) return;
 
-    const deliveryTime = Math.floor(Math.random() * 21) + 20; // Random time between 20 and 40 minutes
+    const deliveryTime = Math.floor(Math.random() * 21) + 20; // Random tid mellan 20 o 40 min
     console.log('Navigating to confirmation page with:', {
       orderItems,
       totalCost,
